@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .test{
+            width: 200px;
+            height: 100px;
+            background-color: darkmagenta;
+        }
+        .test1{
+            width: 200px;
+            height: 100px;
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>这是p标签</p>
+        <ul>
+            <li>
+                <p>这是li中的p</p>
+            </li>
+            <li>这是li</li>
+            <li class="cls">这是class样式</li>
+        </ul>
+    </div>
+    <script>
+    // 选择器
+    // 只能获取第一个
+    // document.querySelector("div p").style.backgroundColor="yellow"
+    var pOjbs = document.querySelectorAll("div p")
+    for (let index = 0; index < pOjbs.length; index++) {
+        pOjbs[index].style.backgroundColor="green";
+        
+    }
+    var clsObjs = document.getElementsByClassName("cls")
+    for (let index = 0; index < clsObjs.length; index++) {
+        clsObjs[index].style.backgroundColor="red";
+        
+    }
+    
+    </script>
+
+
+<!-- 添加移除样式 -->
+    <input id="bt1" type="button" value="添加样式">
+    <input id="bt2" type="button" value="删除样式">
+    <input id="bt3" type="button" value="修改样式">
+    <input id="bt4" type="button" value="显示样式">
+
+    <div id="test_div" class="style:width 200px;height:200px;" >
+
+    </div>
+    <script>
+        function my$(id) {
+            return document.getElementById(id)
+        }
+       my$("bt1").onclick = function () {
+           my$("test_div").classList.add("test");
+           console.log("qwe");
+       }
+       my$("bt2").onclick = function () {
+           my$("test_div").classList.remove("test");
+       }
+       my$("bt3").onclick = function () {
+           my$("test_div").classList.toggle("test1");
+       }
+       my$("bt4").onclick = function () {
+           var result = my$("test_div").classList.contains("test");
+           console.log(result);
+       }
+    </script>
+</body>
+</html>

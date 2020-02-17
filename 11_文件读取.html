@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="btn1" type="file" value="上传文件">
+    <div id="test_dv"></div>
+    <script>
+        function my$(param) {
+            return document.querySelector(param)
+        }
+        var obj_btn1 = my$("#btn1")
+        console.dir(obj_btn1)
+        obj_btn1.onchange=function(){
+            console.log("事件改变了")
+            
+            // 获取文件对象
+            var fl1 = this.files[0]
+            // 创建流对象
+            var fReader = new FileReader();
+            // 读取
+            fReader.readAsText(fl1)
+            // 获取读取文件的结果
+            fReader.onload=function(){
+                console.log( fReader.result )
+                var style = document.createElement("style")
+                style.innerHTML = fReader.result
+                document.querySelector("head").appendChild(style)
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.sessionStorage.setItem("name","shuaige")
+        window.sessionStorage.setItem("age","18")
+        console.log(window.sessionStorage)
+        var resT1 = window.sessionStorage.getItem("name")
+        console.log(resT1)
+        window.sessionStorage.removeItem("age")
+        console.log(window.sessionStorage)
+        window.sessionStorage.clear()
+        console.log(window.sessionStorage) 
+    </script>
+</body>
+</html>
